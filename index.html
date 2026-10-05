@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
+<title>벽돌을 테트리기</title>
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="벽돌을 테트리기">
+<meta name="theme-color" content="#0d1021">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="apple-touch-icon" href="assets/icon-180.png">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<section id="menu" class="screen">
+  <h1>벽돌을 테트리기</h1>
+  <p id="menu-best"></p>
+  <button id="btn-start" class="primary">시작</button>
+  <div class="toggles">
+    <button data-toggle="music"></button>
+    <button data-toggle="sfx"></button>
+  </div>
+</section>
+
+<section id="play" class="screen" hidden>
+  <header class="bar">
+    <button id="btn-pause" aria-label="일시정지">Ⅱ</button>
+    <span class="stat"><small>점수</small><b id="hud-score">0</b></span>
+    <span class="stat"><small>레벨</small><b id="hud-level">1</b></span>
+    <span class="stat"><small>줄</small><b id="hud-lines">0</b></span>
+  </header>
+  <div id="field">
+    <canvas id="canvas"></canvas>
+    <div id="overlay" hidden>
+      <h2 id="overlay-title"></h2>
+      <p id="overlay-detail"></p>
+      <button id="btn-overlay-main" class="primary"></button>
+      <button id="btn-overlay-restart">처음부터</button>
+      <button id="btn-overlay-menu">메뉴로</button>
+      <div class="toggles">
+        <button data-toggle="music"></button>
+        <button data-toggle="sfx"></button>
+      </div>
+    </div>
+  </div>
+  <!-- 키보드처럼: 왼손은 스페이스바(바로 내리기)만, 나머지는 전부 오른손 쪽 화살표 묶음 (↑ = 회전) -->
+  <div id="controls">
+    <button id="space" data-action="drop" aria-label="바로 내리기">스페이스</button>
+    <div id="arrows">
+      <button class="up" data-action="rotate" aria-label="회전">↑</button>
+      <button class="left" data-action="left" data-repeat aria-label="왼쪽">←</button>
+      <button class="down" data-action="down" data-repeat aria-label="아래">↓</button>
+      <button class="right" data-action="right" data-repeat aria-label="오른쪽">→</button>
+    </div>
+  </div>
+</section>
+
+<script src="logic.js"></script>
+<script src="song.js"></script>
+<script src="sound.js"></script>
+<script src="game.js"></script>
+</body>
+</html>
